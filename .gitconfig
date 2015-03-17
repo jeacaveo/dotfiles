@@ -1,0 +1,2 @@
+[alias]
+    tree = log --graph --decorate --oneline --all
