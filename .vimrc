@@ -4,9 +4,9 @@
 " mkdir ~/.vim/
 " mkdir ~/.vim/{autoload,bundle}
 " cd ~/.vim/
+" git init
 "
 " Install Pathogen
-" mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 " curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 "
 " Install plugins:
@@ -20,11 +20,11 @@
 " git submodule add https://github.com/vim-scripts/TaskList.vim.git bundle/tasklist
 " git submodule add https://github.com/vim-scripts/The-NERD-tree.git bundle/nerdtree
 " git submodule add https://github.com/klen/rope-vim.git bundle/ropevim
-" git submodule add hhttps://github.com/Valloric/vim-operator-highlight bundle/vim-operator-highlight
-" git submodule add hhttps://github.com/vim-scripts/vcscommand.vim bundle/vcscommand
-" git submodule add hhttps://github.com/bling/vim-airline bundle/vim-airline
-" git submodule add hhttps://github.com/jmcantrell/vim-virtualenv bundle/vim-virtualenv
-" git submodule add hhttps://github.com/scrooloose/syntastic bundle/syntaxtic
+" git submodule add https://github.com/Valloric/vim-operator-highlight bundle/vim-operator-highlight
+" git submodule add https://github.com/vim-scripts/vcscommand.vim bundle/vcscommand
+" git submodule add https://github.com/bling/vim-airline bundle/vim-airline
+" git submodule add https://github.com/jmcantrell/vim-virtualenv bundle/vim-virtualenv
+" git submodule add https://github.com/scrooloose/syntastic bundle/syntastic
 " git submodule init
 " git submodule update
 " git submodule foreach git submodule init
@@ -34,6 +34,10 @@
 " mkdir ~/.vim/colors
 " cp ~/.virtualenv/src/dotfiles/autoload/gruvbox.vim ~/.vim/autoload/
 " cp ~/.virtualenv/src/dotfiles/colors/gruvbox.vim ~/.vim/colors
+"
+" Compile commant-t:
+" cd ~/.vim/bundle/commant-t/
+" rake make
 
 
 
@@ -173,13 +177,14 @@ let g:syntastic_python_checker_args='--ignore=E501'
 
 
 " Syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
  
 " \l = toggle display of whitespace
 nmap <leader>l :set list!<CR>
