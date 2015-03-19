@@ -25,6 +25,7 @@
 " git submodule add https://github.com/bling/vim-airline bundle/vim-airline
 " git submodule add https://github.com/jmcantrell/vim-virtualenv bundle/vim-virtualenv
 " git submodule add https://github.com/scrooloose/syntastic bundle/syntastic
+" git submodule add https://github.com/wannesm/wmgraphviz.vim.git bundle/wmgraphviz 
 " git submodule init
 " git submodule update
 " git submodule foreach git submodule init
