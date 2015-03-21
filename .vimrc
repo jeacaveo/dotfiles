@@ -230,7 +230,11 @@ map <leader>d :RopeShowDoc<CR>
 
 " Airline tabs
 let g:airline#extensions#tabline#enabled = 1
- 
+
+" GraphViz
+map <leader>vc :GraphvizCompile<CR>
+map <leader>vs :GraphvizShow<CR>
+
 " Add the virtualenv's site-packages to vim path
 py << EOF
 import os.path
