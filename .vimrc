@@ -25,6 +25,7 @@
 " git submodule add https://github.com/bling/vim-airline bundle/vim-airline
 " git submodule add https://github.com/jmcantrell/vim-virtualenv bundle/vim-virtualenv
 " git submodule add https://github.com/scrooloose/syntastic bundle/syntastic
+" git submodule add https://github.com/wannesm/wmgraphviz.vim.git bundle/wmgraphviz 
 " git submodule init
 " git submodule update
 " git submodule foreach git submodule init
@@ -229,7 +230,11 @@ map <leader>d :RopeShowDoc<CR>
 
 " Airline tabs
 let g:airline#extensions#tabline#enabled = 1
- 
+
+" GraphViz
+map <leader>vc :GraphvizCompile<CR>
+map <leader>vs :GraphvizShow<CR>
+
 " Add the virtualenv's site-packages to vim path
 py << EOF
 import os.path
