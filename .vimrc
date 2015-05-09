@@ -9,6 +9,9 @@
 " Install Pathogen
 " curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 "
+" Install livedown (for markdown preview)
+" sudo npm install -g livedown
+"
 " Install plugins:
 " git submodule add https://github.com/ervandew/supertab.git bundle/supertab
 " git submodule add https://github.com/wincent/Command-T.git bundle/command-t
@@ -26,6 +29,7 @@
 " git submodule add https://github.com/jmcantrell/vim-virtualenv bundle/vim-virtualenv
 " git submodule add https://github.com/scrooloose/syntastic bundle/syntastic
 " git submodule add https://github.com/wannesm/wmgraphviz.vim.git bundle/wmgraphviz 
+" git clone https://github.com/shime/vim-livedown.git ~/.vim/bundle/vim-livedown
 " git submodule init
 " git submodule update
 " git submodule foreach git submodule init
@@ -234,6 +238,15 @@ let g:airline#extensions#tabline#enabled = 1
 " GraphViz
 map <leader>vc :GraphvizCompile<CR>
 map <leader>vs :GraphvizShow<CR>
+
+" launch the Livedown server and preview your markdown file
+" :LivedownPreview
+"
+" " stop the Livedown server
+" :LivedownKill  
+
+" ipdb shortcut/abbreviation
+ab ip import ipdb; ipdb.set_trace()
 
 " Add the virtualenv's site-packages to vim path
 py << EOF
