@@ -29,8 +29,8 @@
 " git submodule add https://github.com/jmcantrell/vim-virtualenv bundle/vim-virtualenv
 " git submodule add https://github.com/scrooloose/syntastic bundle/syntastic
 " git submodule add https://github.com/wannesm/wmgraphviz.vim.git bundle/wmgraphviz 
-" git submodule add https://github.com/shime/vim-livedown.git bundle/vim-livedown
 " git submodule add https://github.com/fsharp/vim-fsharp.git bundle/vim-fsharp
+" git submodule add https://github.com/shime/vim-livedown.git bundle/vim-livedown
 " git submodule init
 " git submodule update
 " git submodule foreach git submodule init
@@ -46,7 +46,7 @@
 " rake make
 "
 " Compile vim-fsharp:
-" cd ~/.vim/bundle/vim-fsharp/
+" cd ~/.vim/bundle/vim-fsharp
 " make
 
 
@@ -254,6 +254,8 @@ map <leader>vs :GraphvizShow<CR>
 ab ip import ipdb; ipdb.set_trace()
 
 " fsharp
+" to compile and run current file :!fsharpc % | ./FILE_NAME.exe
+" More help in official repo https://github.com/fsharp/vim-fsharp
 set fileencoding=utf-8
 set fileencodings=utf-8
 let g:fsharp_only_check_errors_on_write = 1
