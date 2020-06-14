@@ -1,10 +1,12 @@
 " To install vim-plug run:
-"     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" On each python virtualenv, the following need to installed:
-"     pip install pynvim jedi
-" Do the following to install the plugings (inside nvim):
-"     :PlugInstall
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" To install the plugins run:
+" :PlugInstall
+" To update the plugins run:
+" :UpdateRemotePlugins
+" To fix python issue with virtualenv, install neovim on every env
+" pip install neovim
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -22,21 +24,41 @@ call plug#end()
 
 colorscheme gruvbox
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" deoplete-jedi
+" to fix compile error run: pip install pynvim jedi
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+set splitbelow
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" jedi-vim
+" disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
+" nemake
+let g:neomake_python_enabled_makers = ['pep8', 'flake8']
+call neomake#configure#automake('nrwi', 2500)
+let g:neomake_open_list = 2
+
 "jump to the last position when reopening a file
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-
+ 
 " Vim advanced functionality
 set showcmd " Show (partial) command in status line.
-set showmatch " Show matching brackets.
-set ignorecase " Do case insensitive matching
-set smartcase " Do smart case matching
-set incsearch " Incremental search
+set showmatch   " Show matching brackets.
+set ignorecase  " Do case insensitive matching
+set smartcase   " Do smart case matching
+set incsearch   " Incremental search
 set autowrite " Automatically save before commands like :next and :make
 set laststatus=2
 set colorcolumn=79
-
+ 
 " color support
 set background=dark
 set t_Co=256
@@ -51,8 +73,8 @@ vnoremap <silent> <Leader><Space> <ESC>:call gruvbox#hls_toggle()<CR>gv
 nnoremap <silent> <CR> :call gruvbox#hls_hide()<CR><CR>
 nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
 nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
-
+nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>? 
+ 
 " To navigate wrapped lines
 :nmap j gj
 :nmap k gk
@@ -78,7 +100,8 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-
+ 
+ 
 " pep8
 nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 set tabstop=4
@@ -103,26 +126,7 @@ nnoremap <silent> <F7> :bp<CR>
 " Ctrl + p = previous
 :nmap <C-n> :bnext<CR>
 :nmap <C-p> :bprev<CR>
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-
-" deoplete-jedi
-" to fix compile error run: pip install pynvim jedi
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-set splitbelow
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-" jedi-vim
-" disable autocompletion, cause we use deoplete for completion
-let g:jedi#completions_enabled = 0
-" open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers = "right"
-
-" neomake
-let g:neomake_python_enabled_makers = ['pep8', 'flake8']
-call neomake#configure#automake('nrwi', 5000)
-
+ 
 " NERDTree
 " \n = start NERDTree
 map <leader>n :NERDTreeToggle<CR>
