@@ -17,6 +17,8 @@ Plug 'zchee/deoplete-jedi'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/vcscommand.vim'
+Plug 'pacha/vem-tabline'
+Plug 'psf/black', { 'branch': 'stable' }
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
@@ -136,3 +138,6 @@ let g:NERDTreeWinPos = "right"
 " do not close the preview tab when switching to other buffers
 let g:mkdp_auto_close = 0
 nnoremap <M-m> :MarkdownPreview<CR>
+
+" Black
+autocmd BufWritePre *.py execute ':Black'
