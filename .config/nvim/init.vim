@@ -7,6 +7,8 @@
 " :UpdateRemotePlugins
 " To fix python issue with virtualenv, install neovim on every env
 " pip install neovim
+" To use :Rg for fzf you need to install ripgrep
+" apt install ripgrep
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -19,6 +21,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'pacha/vem-tabline'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
@@ -59,7 +63,7 @@ set smartcase   " Do smart case matching
 set incsearch   " Incremental search
 set autowrite " Automatically save before commands like :next and :make
 set laststatus=2
-set colorcolumn=79
+set colorcolumn=88
  
 " color support
 set background=dark
@@ -141,3 +145,7 @@ nnoremap <M-m> :MarkdownPreview<CR>
 
 " Black
 autocmd BufWritePre *.py execute ':Black'
+
+" Fuzzy Search (fzf)
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>s :Rg<CR>
