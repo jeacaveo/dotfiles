@@ -135,7 +135,7 @@ nnoremap <silent> <F7> :bp<CR>
  
 " NERDTree
 " \n = start NERDTree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>t :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 
 " MarkdownPreview
