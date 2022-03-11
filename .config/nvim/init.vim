@@ -64,6 +64,7 @@ set incsearch   " Incremental search
 set autowrite " Automatically save before commands like :next and :make
 set laststatus=2
 set colorcolumn=88
+set hidden
  
 " color support
 set background=dark
