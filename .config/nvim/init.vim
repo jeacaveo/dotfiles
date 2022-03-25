@@ -149,4 +149,4 @@ autocmd BufWritePre *.py execute ':Black'
 
 " Fuzzy Search (fzf)
 nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>s :Rg<CR>
+nnoremap <silent> <leader>b :Rg<CR>
