@@ -1,13 +1,11 @@
+" Put this file inside ~/.config/nvim/
 " To install vim-plug run:
-" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " To install the plugins run:
 " :PlugInstall
 " To update the plugins run:
 " :UpdateRemotePlugins
-" To fix python issue with virtualenv, install neovim on every env
-" pip install neovim
-" To use :Rg for fzf you need to install ripgrep
+" To use :Rg for fzf you need to install ripgrep (use brew instead of apt if on Mac)
 " apt install ripgrep
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -46,7 +44,7 @@ let g:jedi#completions_enabled = 0
 let g:jedi#use_splits_not_buffers = "right"
 
 " nemake
-let g:neomake_python_enabled_makers = ['pep8', 'flake8']
+let g:neomake_python_enabled_makers = ['pep8', 'pylint']
 call neomake#configure#automake('nrwi', 2500)
 let g:neomake_open_list = 2
 
@@ -63,7 +61,7 @@ set smartcase   " Do smart case matching
 set incsearch   " Incremental search
 set autowrite " Automatically save before commands like :next and :make
 set laststatus=2
-set colorcolumn=88
+set colorcolumn=120
 set hidden
  
 " color support
@@ -150,3 +148,6 @@ autocmd BufWritePre *.py execute ':Black'
 " Fuzzy Search (fzf)
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Rg<CR>
+
+" 
+let g:python3_host_prog = '/Users/jvent/.pyenv/shims/python3'
