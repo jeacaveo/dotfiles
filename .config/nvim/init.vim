@@ -7,6 +7,9 @@
 " :UpdateRemotePlugins
 " To use :Rg for fzf you need to install ripgrep (use brew instead of apt if on Mac)
 " apt install ripgrep
+" Might need to install pynvim and jedi to your global environment
+" /home/jeacaveo/anaconda3/bin/python3 -m pip install pynvim jedi
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -23,6 +26,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+
+Plug 'liuchengxu/graphviz.vim'
 
 call plug#end()
 
@@ -149,5 +154,8 @@ autocmd BufWritePre *.py execute ':Black'
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Rg<CR>
 
-" 
-let g:python3_host_prog = '/Users/jvent/.pyenv/shims/python3'
+" Perl
+:let g:loaded_perl_provider = 0
+
+" Python
+let g:python3_host_prog = '/home/jeacaveo/anaconda3/bin/python3'
