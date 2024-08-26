@@ -48,8 +48,8 @@ let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
 
-" nemake
-let g:neomake_python_enabled_makers = ['pep8', 'pylint']
+" neomake
+let g:neomake_python_enabled_makers = ['pylint', 'mypy']
 call neomake#configure#automake('nrwi', 2500)
 let g:neomake_open_list = 2
 
@@ -149,6 +149,7 @@ nnoremap <M-m> :MarkdownPreview<CR>
 
 " Black
 autocmd BufWritePre *.py execute ':Black'
+let g:black_linelength = 120
 
 " Fuzzy Search (fzf)
 nnoremap <silent> <leader>f :Files<CR>
@@ -157,5 +158,5 @@ nnoremap <silent> <leader>b :Rg<CR>
 " Perl
 :let g:loaded_perl_provider = 0
 
-" Python
+" Python (Change to your username)
 let g:python3_host_prog = '/home/jeacaveo/anaconda3/bin/python3'
