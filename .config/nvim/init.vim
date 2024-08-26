@@ -29,6 +29,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 Plug 'liuchengxu/graphviz.vim'
 
+Plug 'zbirenbaum/copilot.lua'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+
 call plug#end()
 
 colorscheme gruvbox
@@ -160,3 +164,12 @@ nnoremap <silent> <leader>b :Rg<CR>
 
 " Python (Change to your username)
 let g:python3_host_prog = '/home/jeacaveo/anaconda3/bin/python3'
+
+" Copilot Chat
+nnoremap <silent> <leader>cc :CopilotChat<CR>
+lua << EOF
+require("CopilotChat").setup {
+  debug = true, -- Enable debugging
+  -- See Configuration section for rest
+}
+EOF
