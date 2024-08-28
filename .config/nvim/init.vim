@@ -163,10 +163,17 @@ nnoremap <silent> <leader>b :Rg<CR>
 :let g:loaded_perl_provider = 0
 
 " Python (Change to your username)
-let g:python3_host_prog = '/home/jeacaveo/anaconda3/bin/python3'
+let g:python3_host_prog = '/home/jeacaveo/miniconda3/bin/python3'
 
 " Copilot Chat
 nnoremap <silent> <leader>cc :CopilotChat<CR>
+
+" require('copilot').setup({
+"     suggestion = { enabled = true },
+"     panel = { enabled = true },
+" })
+"
+"
 lua << EOF
 require("CopilotChat").setup {
   debug = true, -- Enable debugging
